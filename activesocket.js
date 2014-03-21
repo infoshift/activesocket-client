@@ -42,12 +42,12 @@ var ActiveSocket = function(options) {
  */
 ActiveSocket.prototype.trigger = function(namespace, data) {
   for (var i in this._ns[namespace]) {
-    this._ns[namespace][i](data);
+    this._ns[namespace][i](data, namespace);
   }
 
   // XXX: Untested
   for (var i in this._ns['*']) {
-    this._ns['*'][i](data);
+    this._ns['*'][i](data, namespace);
   }
 };
 
