@@ -44,6 +44,11 @@ ActiveSocket.prototype.trigger = function(namespace, data) {
   for (var i in this._ns[namespace]) {
     this._ns[namespace][i](data);
   }
+
+  // XXX: Untested
+  for (var i in this._ns['*']) {
+    this._ns['*'][i](data);
+  }
 };
 
 /**
